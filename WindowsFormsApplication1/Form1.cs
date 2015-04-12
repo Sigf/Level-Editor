@@ -18,10 +18,13 @@ namespace WindowsFormsApplication1
 
         public List<PictureBox> cells;
 
-        private Control pointOne;
-        private Control PointTwo;
+        private int pointOne;
+        private int PointTwo;
 
         private bool clickedOnce = false;
+
+        private int current_width = 0;
+        private int current_height = 0;
 
         public Form1()
         {
@@ -33,6 +36,8 @@ namespace WindowsFormsApplication1
         {
             int x_count = (int)xValuePicker.Value;
             int y_count = (int)yValuePicker.Value;
+            current_height = y_count;
+            current_width = x_count;
             int size = (int)cellSizePicker.Value;
             AddCell(x_count, y_count, size);
         }
@@ -88,7 +93,7 @@ namespace WindowsFormsApplication1
                 count++;
             }
 
-            Debug.WriteLine(map_string);
+            //Debug.WriteLine(map_string);
             objWriter.Write(map_string);
             objWriter.Close();
         }
@@ -97,11 +102,20 @@ namespace WindowsFormsApplication1
         {
             PictureBox cell = (PictureBox)sender;
 
+            //Debug.Write("Click!");
+
             if (rectangleMode.Checked == true)
             {
                 if (clickedOnce == false)
                 {
+                    pointOne = cells.IndexOf(cell);
+                    clickedOnce = true;
+                }
 
+                else
+                {
+                    PointTwo = cells.IndexOf(cell);
+                    printRectangle();
                 }
             }
 
@@ -154,6 +168,35 @@ namespace WindowsFormsApplication1
         {
             selected_color = Color.Lime;
             current_selection_box.BackColor = Color.Lime;
+        }
+
+        public void printRectangle()
+        {
+
+            int a_x = pointOne % current_width;
+            int a_y = (int)Math.Ceiling((double)(pointOne / current_height));
+
+            int b_x = PointTwo % current_width;
+            int b_y = (int)Math.Ceiling((double)(PointTwo / current_height));
+
+            Debug.WriteLine("point1:(" + a_x + "," + a_y + ")");
+            Debug.WriteLine("point2:(" + b_x + "," + b_y + ")");
+
+            int width = Math.Abs(a_x - b_x);
+            int height = Math.Abs(a_y - b_y);
+
+            int origin = pointOne < PointTwo ? pointOne : PointTwo;
+
+            for (int i = 0; i < height + 1; i++)
+            {
+                for (int j = 0; j < width + 1; j++)
+                {
+                    int index = ((origin + j) + (i*current_width));
+                    PictureBox cell = cells.ElementAt(index);
+                    cell.BackColor = selected_color;
+                }
+            }
+                clickedOnce = false;
         }
     }
 }
