@@ -174,10 +174,10 @@ namespace WindowsFormsApplication1
         {
 
             int a_x = pointOne % current_width;
-            int a_y = (int)Math.Ceiling((double)(pointOne / current_height));
+            int a_y = (int)Math.Ceiling((double)(pointOne / current_width));
 
             int b_x = PointTwo % current_width;
-            int b_y = (int)Math.Ceiling((double)(PointTwo / current_height));
+            int b_y = (int)Math.Ceiling((double)(PointTwo / current_width));
 
             Debug.WriteLine("point1:(" + a_x + "," + a_y + ")");
             Debug.WriteLine("point2:(" + b_x + "," + b_y + ")");
