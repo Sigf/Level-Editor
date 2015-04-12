@@ -10,3 +10,9 @@ E:\Programs\Visual Studio\Level_Editor\WindowsFormsApplication1\obj\Debug\Window
 E:\Programs\repos\Level-Editor\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+E:\Programs\repos\Level-Editor\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+E:\Programs\repos\Level-Editor\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache

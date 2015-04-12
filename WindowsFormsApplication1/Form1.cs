@@ -78,7 +78,7 @@ namespace WindowsFormsApplication1
 
             foreach (Control cell in cells)
             {
-                if (count % width == 0) map_string += "\r\n";
+                if (count % width == 0 && count != 0) map_string += "\r\n";
 
                 if (cell.BackColor == Color.White) map_string += "0";
                 else if (cell.BackColor == Color.Red) map_string += "1";
