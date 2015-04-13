@@ -26,10 +26,13 @@ namespace WindowsFormsApplication1
         private int current_width = 0;
         private int current_height = 0;
 
+        private PictureBox current_cell;
+
         public Form1()
         {
             InitializeComponent();
             cells = new List<PictureBox>();
+            current_cell = null;
         }
 
         private void create_button_Click(object sender, EventArgs e)
@@ -60,6 +63,7 @@ namespace WindowsFormsApplication1
                     this.Controls.Add(newBox);
                     cells.Add(newBox);
                     newBox.Click += new System.EventHandler(this.handleCellClick);
+                    newBox.MouseEnter += new System.EventHandler(this.highlightSelection);
                 }
             }
         }
@@ -120,6 +124,19 @@ namespace WindowsFormsApplication1
             }
 
             cell.BackColor = selected_color;
+        }
+
+        private void highlightSelection(object sender, EventArgs e)
+        {
+            if (current_cell != null)
+            {
+                clearHighlight(current_cell);
+            }
+
+            current_cell = (PictureBox)sender;
+         
+            PictureBox cell = (PictureBox)sender;
+            cell.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -197,6 +214,11 @@ namespace WindowsFormsApplication1
                 }
             }
                 clickedOnce = false;
+        }
+
+        public void clearHighlight( PictureBox cell)
+        {
+            cell.BorderStyle = BorderStyle.None;
         }
     }
 }
