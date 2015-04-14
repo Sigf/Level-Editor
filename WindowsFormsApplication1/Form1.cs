@@ -52,7 +52,7 @@ namespace WindowsFormsApplication1
 
            Color.Black,
            Color.SeaGreen,
-           Color.Magenta,
+           Color.YellowGreen,
            Color.Orange
         };
 
