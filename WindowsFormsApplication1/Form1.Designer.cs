@@ -108,6 +108,11 @@
             this.xValuePicker.Name = "xValuePicker";
             this.xValuePicker.Size = new System.Drawing.Size(50, 20);
             this.xValuePicker.TabIndex = 7;
+            this.xValuePicker.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // yValuePicker
             // 
@@ -115,6 +120,11 @@
             this.yValuePicker.Name = "yValuePicker";
             this.yValuePicker.Size = new System.Drawing.Size(50, 20);
             this.yValuePicker.TabIndex = 8;
+            this.yValuePicker.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // label4
             // 
@@ -149,6 +159,11 @@
             this.cellSizePicker.Name = "cellSizePicker";
             this.cellSizePicker.Size = new System.Drawing.Size(47, 20);
             this.cellSizePicker.TabIndex = 12;
+            this.cellSizePicker.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
             // 
             // pictureBox1
             // 

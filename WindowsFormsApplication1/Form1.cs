@@ -94,6 +94,8 @@ namespace WindowsFormsApplication1
                 else if (cell.BackColor == Color.Blue) map_string += "2";
                 else if (cell.BackColor == Color.Yellow) map_string += "3";
                 else if (cell.BackColor == Color.Lime) map_string += "4";
+
+                map_string += ' ';
                 count++;
             }
 
