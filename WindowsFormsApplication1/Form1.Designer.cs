@@ -53,6 +53,7 @@
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
+            this.wallCreateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.xValuePicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yValuePicker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.current_selection_box)).BeginInit();
@@ -255,12 +256,23 @@
             this.toolTip5.SetToolTip(this.pictureBox5, "Horizontal Door");
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
+            // wallCreateButton
+            // 
+            this.wallCreateButton.Location = new System.Drawing.Point(533, 32);
+            this.wallCreateButton.Name = "wallCreateButton";
+            this.wallCreateButton.Size = new System.Drawing.Size(75, 23);
+            this.wallCreateButton.TabIndex = 21;
+            this.wallCreateButton.Text = "Create Walls";
+            this.wallCreateButton.UseVisualStyleBackColor = true;
+            this.wallCreateButton.Click += new System.EventHandler(this.wallCreateButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(773, 331);
+            this.Controls.Add(this.wallCreateButton);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.rectangleMode);
             this.Controls.Add(this.clearButton);
@@ -321,6 +333,7 @@
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip4;
         private System.Windows.Forms.ToolTip toolTip5;
+        private System.Windows.Forms.Button wallCreateButton;
     }
 }
 
