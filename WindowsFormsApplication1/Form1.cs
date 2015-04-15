@@ -117,11 +117,20 @@ namespace WindowsFormsApplication1
             {
                 if (count % width == 0 && count != 0) map_string += "\r\n";
 
-                if (cell.BackColor == Color.White) map_string += "0";
-                else if (cell.BackColor == Color.Red) map_string += "1";
-                else if (cell.BackColor == Color.Blue) map_string += "2";
-                else if (cell.BackColor == Color.Yellow) map_string += "3";
-                else if (cell.BackColor == Color.Lime) map_string += "4";
+                if (cell.BackColor == cell_colors[0]) map_string += "0";
+                else if (cell.BackColor == cell_colors[1]) map_string += "1";
+                else if (cell.BackColor == cell_colors[2]) map_string += "2";
+                else if (cell.BackColor == cell_colors[3]) map_string += "3";
+                else if (cell.BackColor == cell_colors[4]) map_string += "4";
+                else if (cell.BackColor == cell_colors[5]) map_string += "5";
+                else if (cell.BackColor == cell_colors[6]) map_string += "6";
+                else if (cell.BackColor == cell_colors[7]) map_string += "7";
+                else if (cell.BackColor == cell_colors[8]) map_string += "8";
+                else if (cell.BackColor == cell_colors[9]) map_string += "9";
+                else if (cell.BackColor == cell_colors[10]) map_string += "A";
+                else if (cell.BackColor == cell_colors[11]) map_string += "B";
+                else if (cell.BackColor == cell_colors[12]) map_string += "C";
+                else if (cell.BackColor == cell_colors[13]) map_string += "D";
 
                 map_string += ' ';
                 count++;
@@ -365,6 +374,54 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
+            fixInnerCorners();
+        }
+
+        private void fixInnerCorners()
+        {
+            int current_index = 0;
+            int select_index = 0;
+            foreach (PictureBox cell in cells)
+            {
+                if (cell.BackColor != cell_colors[(int)cell_type.floor] && cell.BackColor != cell_colors[(int)cell_type.empty])
+                {
+                    current_index = cells.IndexOf(cell);
+
+                    int a_x = current_index % current_width;
+                    int a_y = (int)Math.Ceiling((double)(current_index / current_width));
+
+                    PictureBox cell_left = cells[getIndexAt(a_x - 1, a_y)];
+                    PictureBox cell_right = cells[getIndexAt(a_x + 1, a_y)];
+                    PictureBox cell_top = cells[getIndexAt(a_x, a_y - 1)];
+                    PictureBox cell_bottom = cells[getIndexAt(a_x, a_y + 1)];
+
+                    if ((cell_top.BackColor == cell_colors[(int)cell_type.right] || cell_top.BackColor == cell_colors[(int)cell_type.top_right_outter_corner]) &&
+                         (cell_right.BackColor == cell_colors[(int)cell_type.top] || cell_right.BackColor == cell_colors[(int)cell_type.top_right_outter_corner]))
+                    {
+                        cell.BackColor = cell_colors[(int)cell_type.bottom_left_inner_corner];
+                    }
+
+                    else if ((cell_bottom.BackColor == cell_colors[(int)cell_type.right] || cell_bottom.BackColor == cell_colors[(int)cell_type.bottom_right_outter_corner]) &&
+                         (cell_right.BackColor == cell_colors[(int)cell_type.bottom] || cell_right.BackColor == cell_colors[(int)cell_type.bottom_right_outter_corner]))
+                    {
+                        cell.BackColor = cell_colors[(int)cell_type.top_left_inner_corner];
+                    }
+
+                    else if ((cell_bottom.BackColor == cell_colors[(int)cell_type.left] || cell_bottom.BackColor == cell_colors[(int)cell_type.bottom_left_outter_corner]) &&
+                         (cell_left.BackColor == cell_colors[(int)cell_type.bottom] || cell_left.BackColor == cell_colors[(int)cell_type.bottom_left_outter_corner]))
+                    {
+                        cell.BackColor = cell_colors[(int)cell_type.top_right_inner_corner];
+                    }
+
+                    else if ((cell_top.BackColor == cell_colors[(int)cell_type.left] || cell_top.BackColor == cell_colors[(int)cell_type.top_left_outter_corner]) &&
+                         (cell_left.BackColor == cell_colors[(int)cell_type.top] || cell_left.BackColor == cell_colors[(int)cell_type.top_left_outter_corner]))
+                    {
+                        cell.BackColor = cell_colors[(int)cell_type.bottom_right_inner_corner];
+                    }
+
+                }
+            }
+
         }
 
         private cell_type getTileCode(PictureBox cell_left, PictureBox cell_right, PictureBox cell_top, PictureBox cell_bottom)
