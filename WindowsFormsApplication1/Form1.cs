@@ -203,9 +203,7 @@ namespace WindowsFormsApplication1
             int width = Math.Abs(a_x - b_x);
             int height = Math.Abs(a_y - b_y);
 
-            int origin = pointOne < PointTwo ? pointOne : PointTwo;
-
-            //if((a_x >= b_x && a_y < b_y) || () )
+            int origin = getOrigin();
 
             for (int i = 0; i < height + 1; i++)
             {
@@ -493,6 +491,21 @@ namespace WindowsFormsApplication1
         {
             selected_color = cell_colors[(int)type];
             current_selection_box.BackColor = cell_colors[(int)type];
+        }
+
+        private int getOrigin()
+        {
+
+            int a_x = pointOne % current_width;
+            int a_y = (int)Math.Ceiling((double)(pointOne / current_width));
+
+            int b_x = PointTwo % current_width;
+            int b_y = (int)Math.Ceiling((double)(PointTwo / current_width));
+
+            int origin_x = a_x >= b_x ? b_x : a_x;
+            int origin_y = a_y >= b_y ? b_y : a_y;
+
+            return getIndexAt(origin_x, origin_y);
         }
 
         /*
