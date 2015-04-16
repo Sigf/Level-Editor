@@ -28,6 +28,8 @@ namespace WindowsFormsApplication1
 
         private PictureBox current_cell;
 
+        private bool rectanlgeMode_checked = false;
+
         private enum cell_type
         {
             empty, floor,
@@ -63,20 +65,16 @@ namespace WindowsFormsApplication1
             current_cell = null;
         }
 
-        private void create_button_Click(object sender, EventArgs e)
+        public void createRoom(int x_count, int y_count, int size)
         {
-            int x_count = (int)xValuePicker.Value;
-            int y_count = (int)yValuePicker.Value;
+            removeCanvas();
             current_height = y_count;
             current_width = x_count;
-            int size = (int)cellSizePicker.Value;
-            AddCell(x_count, y_count, size);
+            createCanvas(x_count, y_count, size);
         }
 
-        public void AddCell(int column, int row, int size)
+        public void createCanvas(int column, int row, int size)
         {
-            //System.Drawing.Point origin = room_layout.Location;
-
             for (int i = 0; i < row; i++)
             {
                 for (int j = 0; j < column; j++)
@@ -106,12 +104,14 @@ namespace WindowsFormsApplication1
                 file_name = openFileDialog1.FileName;
             }
 
+            if (file_name == "") { return; }
+
             objWriter = new System.IO.StreamWriter(file_name);
 
             string map_string = "";
 
             int count = 0;
-            int width = (int)xValuePicker.Value;
+            int width = current_width;
 
             foreach (Control cell in cells)
             {
@@ -136,7 +136,6 @@ namespace WindowsFormsApplication1
                 count++;
             }
 
-            //Debug.WriteLine(map_string);
             objWriter.Write(map_string);
             objWriter.Close();
         }
@@ -145,9 +144,7 @@ namespace WindowsFormsApplication1
         {
             PictureBox cell = (PictureBox)sender;
 
-            //Debug.Write("Click!");
-
-            if (rectangleMode.Checked == true)
+            if (rectanlgeMode_checked == true)
             {
                 if (clickedOnce == false)
                 {
@@ -178,36 +175,7 @@ namespace WindowsFormsApplication1
             cell.BorderStyle = BorderStyle.FixedSingle;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            selected_color = Color.White;
-            current_selection_box.BackColor = Color.White;
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            selected_color = Color.Red;
-            current_selection_box.BackColor = Color.Red;
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            selected_color = Color.Blue;
-            current_selection_box.BackColor = Color.Blue;
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            selected_color = Color.Yellow;
-            current_selection_box.BackColor = Color.Yellow;
-        }
-
-        private void fileCreateButton_Click(object sender, EventArgs e)
-        {
-            CreateFile();
-        }
-
-        private void clearButton_Click(object sender, EventArgs e)
+        private void clearCanvas()
         {
             foreach (Control cell in cells)
             {
@@ -215,23 +183,12 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void rectangleMode_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            selected_color = Color.Lime;
-            current_selection_box.BackColor = Color.Lime;
-        }
-
         private int getIndexAt(int x, int y)
         {
             return (y * current_width) + x;
         }
 
-        public void printRectangle()
+        private void printRectangle()
         {
 
             int a_x = pointOne % current_width;
@@ -267,10 +224,10 @@ namespace WindowsFormsApplication1
             cell.BorderStyle = BorderStyle.None;
         }
 
-        private void wallCreateButton_Click(object sender, EventArgs e)
+        private void GenerateWalls()
         {
+
             int current_index = 0;
-            int select_index = 0;
             foreach (PictureBox cell in cells)
             {
                 if (cell.BackColor == Color.Blue)
@@ -280,107 +237,110 @@ namespace WindowsFormsApplication1
                     int a_x = current_index % current_width;
                     int a_y = (int)Math.Ceiling((double)(current_index / current_width));
 
-                    PictureBox cell_left = cells[getIndexAt(a_x - 1, a_y)];
-                    PictureBox cell_right = cells[getIndexAt(a_x + 1, a_y)];
-                    PictureBox cell_top = cells[getIndexAt(a_x, a_y - 1)];
-                    PictureBox cell_bottom = cells[getIndexAt(a_x, a_y + 1)];
-
-                    cell_type code = getTileCode(cell_left, cell_right, cell_top, cell_bottom);
-
-                    
-
-                    switch(code)
+                    if (outOfBoundCells(a_x, a_y))
                     {
-                        // walls
-                        case(cell_type.top):
-                            if (cell_top.BackColor == cell_colors[(int)cell_type.left])
-                            {
-                                cell_top.BackColor = cell_colors[(int)cell_type.bottom_right_inner_corner];
-                            }
 
-                            else if (cell_top.BackColor == cell_colors[(int)cell_type.right])
-                            {
-                                cell_top.BackColor = cell_colors[(int)cell_type.bottom_left_inner_corner];
-                            }
+                        PictureBox cell_left = cells[getIndexAt(a_x - 1, a_y)];
+                        PictureBox cell_right = cells[getIndexAt(a_x + 1, a_y)];
+                        PictureBox cell_top = cells[getIndexAt(a_x, a_y - 1)];
+                        PictureBox cell_bottom = cells[getIndexAt(a_x, a_y + 1)];
 
-                            else if(cell_top.BackColor == cell_colors[(int)cell_type.empty]) cell_top.BackColor = cell_colors[(int)cell_type.top];
-                            break;
+                        cell_type code = getTileCode(cell_left, cell_right, cell_top, cell_bottom);
 
-                        case (cell_type.right):
-                            if (cell_right.BackColor == cell_colors[(int)cell_type.top])
-                            {
-                                cell_right.BackColor = cell_colors[(int)cell_type.bottom_left_inner_corner];
-                            }
 
-                            else if (cell_right.BackColor == cell_colors[(int)cell_type.bottom])
-                            {
-                                cell_right.BackColor = cell_colors[(int)cell_type.top_left_inner_corner];
-                            }
 
-                            else if (cell_right.BackColor == cell_colors[(int)cell_type.empty]) cell_right.BackColor = cell_colors[(int)cell_type.right];
-                            break;
+                        switch (code)
+                        {
+                            // walls
+                            case (cell_type.top):
+                                if (cell_top.BackColor == cell_colors[(int)cell_type.left])
+                                {
+                                    cell_top.BackColor = cell_colors[(int)cell_type.bottom_right_inner_corner];
+                                }
 
-                        case (cell_type.bottom):
-                            if (cell_bottom.BackColor == cell_colors[(int)cell_type.left])
-                            {
-                                cell_bottom.BackColor = cell_colors[(int)cell_type.top_right_inner_corner];
-                            }
+                                else if (cell_top.BackColor == cell_colors[(int)cell_type.right])
+                                {
+                                    cell_top.BackColor = cell_colors[(int)cell_type.bottom_left_inner_corner];
+                                }
 
-                            else if (cell_bottom.BackColor == cell_colors[(int)cell_type.right])
-                            {
-                                cell_bottom.BackColor = cell_colors[(int)cell_type.top_left_inner_corner];
-                            }
+                                else if (cell_top.BackColor == cell_colors[(int)cell_type.empty]) cell_top.BackColor = cell_colors[(int)cell_type.top];
+                                break;
 
-                            else if(cell_bottom.BackColor == cell_colors[(int)cell_type.empty]) cell_bottom.BackColor = cell_colors[(int)cell_type.bottom];
-                            break;
+                            case (cell_type.right):
+                                if (cell_right.BackColor == cell_colors[(int)cell_type.top])
+                                {
+                                    cell_right.BackColor = cell_colors[(int)cell_type.bottom_left_inner_corner];
+                                }
 
-                        case(cell_type.left):
-                            if (cell_left.BackColor == cell_colors[(int)cell_type.top])
-                            {
-                                cell_right.BackColor = cell_colors[(int)cell_type.bottom_right_inner_corner];
-                            }
+                                else if (cell_right.BackColor == cell_colors[(int)cell_type.bottom])
+                                {
+                                    cell_right.BackColor = cell_colors[(int)cell_type.top_left_inner_corner];
+                                }
 
-                            else if (cell_left.BackColor == cell_colors[(int)cell_type.bottom])
-                            {
-                                cell_left.BackColor = cell_colors[(int)cell_type.top_right_inner_corner];
-                            }
+                                else if (cell_right.BackColor == cell_colors[(int)cell_type.empty]) cell_right.BackColor = cell_colors[(int)cell_type.right];
+                                break;
 
-                            else if (cell_left.BackColor == cell_colors[(int)cell_type.empty]) cell_left.BackColor = cell_colors[(int)cell_type.left];
-                            break;
-                        // outter corners
-                        case(cell_type.top_right_outter_corner):
-                            cells[getIndexAt(a_x + 1, a_y - 1)].BackColor = cell_colors[(int)cell_type.top_right_outter_corner];
-                            cell_top.BackColor = cell_colors[(int)cell_type.top];
-                            cell_right.BackColor = cell_colors[(int)cell_type.right];
-                            break;
+                            case (cell_type.bottom):
+                                if (cell_bottom.BackColor == cell_colors[(int)cell_type.left])
+                                {
+                                    cell_bottom.BackColor = cell_colors[(int)cell_type.top_right_inner_corner];
+                                }
 
-                        case(cell_type.bottom_right_outter_corner):
-                            cells[getIndexAt(a_x + 1, a_y + 1)].BackColor = cell_colors[(int)cell_type.bottom_right_outter_corner];
-                            cell_bottom.BackColor = cell_colors[(int)cell_type.bottom];
-                            cell_right.BackColor = cell_colors[(int)cell_type.right];
-                            break;
+                                else if (cell_bottom.BackColor == cell_colors[(int)cell_type.right])
+                                {
+                                    cell_bottom.BackColor = cell_colors[(int)cell_type.top_left_inner_corner];
+                                }
 
-                        case(cell_type.bottom_left_outter_corner):
-                            cells[getIndexAt(a_x - 1, a_y + 1)].BackColor = cell_colors[(int)cell_type.bottom_left_outter_corner];
-                            cell_bottom.BackColor = cell_colors[(int)cell_type.bottom];
-                            cell_left.BackColor = cell_colors[(int)cell_type.left];
-                            break;
+                                else if (cell_bottom.BackColor == cell_colors[(int)cell_type.empty]) cell_bottom.BackColor = cell_colors[(int)cell_type.bottom];
+                                break;
 
-                        case(cell_type.top_left_outter_corner):
-                            cells[getIndexAt(a_x - 1, a_y - 1)].BackColor = cell_colors[(int)cell_type.top_left_outter_corner];
-                            cell_top.BackColor = cell_colors[(int)cell_type.top];
-                            cell_left.BackColor = cell_colors[(int)cell_type.left];
-                            break;
+                            case (cell_type.left):
+                                if (cell_left.BackColor == cell_colors[(int)cell_type.top])
+                                {
+                                    cell_right.BackColor = cell_colors[(int)cell_type.bottom_right_inner_corner];
+                                }
+
+                                else if (cell_left.BackColor == cell_colors[(int)cell_type.bottom])
+                                {
+                                    cell_left.BackColor = cell_colors[(int)cell_type.top_right_inner_corner];
+                                }
+
+                                else if (cell_left.BackColor == cell_colors[(int)cell_type.empty]) cell_left.BackColor = cell_colors[(int)cell_type.left];
+                                break;
+                            // outter corners
+                            case (cell_type.top_right_outter_corner):
+                                cells[getIndexAt(a_x + 1, a_y - 1)].BackColor = cell_colors[(int)cell_type.top_right_outter_corner];
+                                cell_top.BackColor = cell_colors[(int)cell_type.top];
+                                cell_right.BackColor = cell_colors[(int)cell_type.right];
+                                break;
+
+                            case (cell_type.bottom_right_outter_corner):
+                                cells[getIndexAt(a_x + 1, a_y + 1)].BackColor = cell_colors[(int)cell_type.bottom_right_outter_corner];
+                                cell_bottom.BackColor = cell_colors[(int)cell_type.bottom];
+                                cell_right.BackColor = cell_colors[(int)cell_type.right];
+                                break;
+
+                            case (cell_type.bottom_left_outter_corner):
+                                cells[getIndexAt(a_x - 1, a_y + 1)].BackColor = cell_colors[(int)cell_type.bottom_left_outter_corner];
+                                cell_bottom.BackColor = cell_colors[(int)cell_type.bottom];
+                                cell_left.BackColor = cell_colors[(int)cell_type.left];
+                                break;
+
+                            case (cell_type.top_left_outter_corner):
+                                cells[getIndexAt(a_x - 1, a_y - 1)].BackColor = cell_colors[(int)cell_type.top_left_outter_corner];
+                                cell_top.BackColor = cell_colors[(int)cell_type.top];
+                                cell_left.BackColor = cell_colors[(int)cell_type.left];
+                                break;
+                        }
                     }
                 }
             }
-            fixInnerCorners();
+            secondPass();
         }
 
-        private void fixInnerCorners()
+        private void secondPass()
         {
             int current_index = 0;
-            int select_index = 0;
             foreach (PictureBox cell in cells)
             {
                 if (cell.BackColor != cell_colors[(int)cell_type.floor] && cell.BackColor != cell_colors[(int)cell_type.empty])
@@ -390,35 +350,38 @@ namespace WindowsFormsApplication1
                     int a_x = current_index % current_width;
                     int a_y = (int)Math.Ceiling((double)(current_index / current_width));
 
-                    PictureBox cell_left = cells[getIndexAt(a_x - 1, a_y)];
-                    PictureBox cell_right = cells[getIndexAt(a_x + 1, a_y)];
-                    PictureBox cell_top = cells[getIndexAt(a_x, a_y - 1)];
-                    PictureBox cell_bottom = cells[getIndexAt(a_x, a_y + 1)];
-
-                    if ((cell_top.BackColor == cell_colors[(int)cell_type.right] || cell_top.BackColor == cell_colors[(int)cell_type.top_right_outter_corner]) &&
-                         (cell_right.BackColor == cell_colors[(int)cell_type.top] || cell_right.BackColor == cell_colors[(int)cell_type.top_right_outter_corner]))
+                    if(outOfBoundCells(a_x, a_y))
                     {
-                        cell.BackColor = cell_colors[(int)cell_type.bottom_left_inner_corner];
-                    }
 
-                    else if ((cell_bottom.BackColor == cell_colors[(int)cell_type.right] || cell_bottom.BackColor == cell_colors[(int)cell_type.bottom_right_outter_corner]) &&
-                         (cell_right.BackColor == cell_colors[(int)cell_type.bottom] || cell_right.BackColor == cell_colors[(int)cell_type.bottom_right_outter_corner]))
-                    {
-                        cell.BackColor = cell_colors[(int)cell_type.top_left_inner_corner];
-                    }
+                        PictureBox cell_left = cells[getIndexAt(a_x - 1, a_y)];
+                        PictureBox cell_right = cells[getIndexAt(a_x + 1, a_y)];
+                        PictureBox cell_top = cells[getIndexAt(a_x, a_y - 1)];
+                        PictureBox cell_bottom = cells[getIndexAt(a_x, a_y + 1)];
 
-                    else if ((cell_bottom.BackColor == cell_colors[(int)cell_type.left] || cell_bottom.BackColor == cell_colors[(int)cell_type.bottom_left_outter_corner]) &&
-                         (cell_left.BackColor == cell_colors[(int)cell_type.bottom] || cell_left.BackColor == cell_colors[(int)cell_type.bottom_left_outter_corner]))
-                    {
-                        cell.BackColor = cell_colors[(int)cell_type.top_right_inner_corner];
-                    }
+                        if ((cell_top.BackColor == cell_colors[(int)cell_type.right] || cell_top.BackColor == cell_colors[(int)cell_type.top_right_outter_corner]) &&
+                             (cell_right.BackColor == cell_colors[(int)cell_type.top] || cell_right.BackColor == cell_colors[(int)cell_type.top_right_outter_corner]))
+                        {
+                            cell.BackColor = cell_colors[(int)cell_type.bottom_left_inner_corner];
+                        }
 
-                    else if ((cell_top.BackColor == cell_colors[(int)cell_type.left] || cell_top.BackColor == cell_colors[(int)cell_type.top_left_outter_corner]) &&
-                         (cell_left.BackColor == cell_colors[(int)cell_type.top] || cell_left.BackColor == cell_colors[(int)cell_type.top_left_outter_corner]))
-                    {
-                        cell.BackColor = cell_colors[(int)cell_type.bottom_right_inner_corner];
-                    }
+                        else if ((cell_bottom.BackColor == cell_colors[(int)cell_type.right] || cell_bottom.BackColor == cell_colors[(int)cell_type.bottom_right_outter_corner]) &&
+                            (cell_right.BackColor == cell_colors[(int)cell_type.bottom] || cell_right.BackColor == cell_colors[(int)cell_type.bottom_right_outter_corner]))
+                        {
+                            cell.BackColor = cell_colors[(int)cell_type.top_left_inner_corner];
+                        }
 
+                        else if ((cell_bottom.BackColor == cell_colors[(int)cell_type.left] || cell_bottom.BackColor == cell_colors[(int)cell_type.bottom_left_outter_corner]) &&
+                            (cell_left.BackColor == cell_colors[(int)cell_type.bottom] || cell_left.BackColor == cell_colors[(int)cell_type.bottom_left_outter_corner]))
+                        {
+                            cell.BackColor = cell_colors[(int)cell_type.top_right_inner_corner];
+                        }
+
+                        else if ((cell_top.BackColor == cell_colors[(int)cell_type.left] || cell_top.BackColor == cell_colors[(int)cell_type.top_left_outter_corner]) &&
+                            (cell_left.BackColor == cell_colors[(int)cell_type.top] || cell_left.BackColor == cell_colors[(int)cell_type.top_left_outter_corner]))
+                        {
+                            cell.BackColor = cell_colors[(int)cell_type.bottom_right_inner_corner];
+                        }
+                    }
                 }
             }
 
@@ -508,6 +471,130 @@ namespace WindowsFormsApplication1
             }
 
             return cell_type.empty;
+        }
+
+        public void removeCanvas()
+        {
+            foreach (PictureBox cell in cells)
+            {
+                this.Controls.Remove(cell);
+                cell.Dispose();
+            }
+
+            cells.Clear();
+        }
+
+        private bool outOfBoundCells(int a_x, int a_y)
+        {
+            return (a_x - 1 >= 0 && a_x + 1 != 0 && a_y - 1 >= 0 && a_y + 1 < current_height);
+        }
+
+        private void setCurrentColor(cell_type type)
+        {
+            selected_color = cell_colors[(int)type];
+            current_selection_box.BackColor = cell_colors[(int)type];
+        }
+
+        /*
+         * Menu Items
+         * 
+         * */
+
+        private void createNewRoomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewRoomForm create_form = new NewRoomForm(this);
+            create_form.Show();
+        }
+
+        private void exportRoomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateFile();
+        }
+
+        private void generateWallsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GenerateWalls();
+        }
+
+        private void clearRoomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clearCanvas();
+        }
+
+        private void rectangleDrawModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rectanlgeMode_checked = rectanlgeMode_checked ? false : true;
+            rectangleDrawModeToolStripMenuItem.Checked = rectanlgeMode_checked;
+        }
+
+        private void floorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.floor);
+        }
+
+        private void emptyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.empty);
+        }
+
+        private void topToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.top);
+        }
+
+        private void rightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.right);
+        }
+
+        private void bottomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.bottom);
+        }
+
+        private void leftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.left);
+        }
+
+        private void topRightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.top_right_outter_corner);
+        }
+
+        private void bottomRightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.bottom_right_outter_corner);
+        }
+
+        private void bottomLeftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.bottom_left_outter_corner);
+        }
+
+        private void topLeftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.top_left_outter_corner);
+        }
+
+        private void topRightToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.top_right_inner_corner);
+        }
+
+        private void bottomRightToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.bottom_right_inner_corner);
+        }
+
+        private void bottomLeftToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.bottom_left_inner_corner);
+        }
+
+        private void topLeftToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            setCurrentColor(cell_type.top_left_inner_corner);
         }
     }
 }

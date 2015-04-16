@@ -16,3 +16,4 @@ E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsAp
 E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
 E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+E:\Programs\repos\Level-Editor\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.NewRoomForm.resources

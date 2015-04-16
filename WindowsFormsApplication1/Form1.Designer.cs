@@ -29,108 +29,49 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.create_button = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.xValuePicker = new System.Windows.Forms.NumericUpDown();
-            this.yValuePicker = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.current_selection_box = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cellSizePicker = new System.Windows.Forms.NumericUpDown();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.fileCreateButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.rectangleMode = new System.Windows.Forms.CheckBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
-            this.wallCreateButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.xValuePicker)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yValuePicker)).BeginInit();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createNewRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rectangleDrawModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateWallsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectTileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emptyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.floorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bottomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outterCornersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bottomRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bottomLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.innerCornersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topRightToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bottomRightToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bottomLeftToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.topLeftToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.current_selection_box)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cellSizePicker)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Room Size:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(136, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(18, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "by";
-            // 
-            // create_button
-            // 
-            this.create_button.Location = new System.Drawing.Point(15, 32);
-            this.create_button.Name = "create_button";
-            this.create_button.Size = new System.Drawing.Size(75, 23);
-            this.create_button.TabIndex = 4;
-            this.create_button.Text = "Create";
-            this.create_button.UseVisualStyleBackColor = true;
-            this.create_button.Click += new System.EventHandler(this.create_button_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(233, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Tile Selection:";
-            // 
-            // xValuePicker
-            // 
-            this.xValuePicker.Location = new System.Drawing.Point(79, 7);
-            this.xValuePicker.Name = "xValuePicker";
-            this.xValuePicker.Size = new System.Drawing.Size(50, 20);
-            this.xValuePicker.TabIndex = 7;
-            this.xValuePicker.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // yValuePicker
-            // 
-            this.yValuePicker.Location = new System.Drawing.Point(160, 7);
-            this.yValuePicker.Name = "yValuePicker";
-            this.yValuePicker.Size = new System.Drawing.Size(50, 20);
-            this.yValuePicker.TabIndex = 8;
-            this.yValuePicker.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(114, 37);
+            this.label4.Location = new System.Drawing.Point(164, 5);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 13);
             this.label4.TabIndex = 9;
@@ -139,169 +80,256 @@
             // current_selection_box
             // 
             this.current_selection_box.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.current_selection_box.Location = new System.Drawing.Point(216, 32);
+            this.current_selection_box.Location = new System.Drawing.Point(266, 0);
             this.current_selection_box.Name = "current_selection_box";
-            this.current_selection_box.Size = new System.Drawing.Size(23, 23);
+            this.current_selection_box.Size = new System.Drawing.Size(23, 24);
             this.current_selection_box.TabIndex = 10;
             this.current_selection_box.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(257, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Cell Size:";
-            // 
-            // cellSizePicker
-            // 
-            this.cellSizePicker.Location = new System.Drawing.Point(313, 35);
-            this.cellSizePicker.Name = "cellSizePicker";
-            this.cellSizePicker.Size = new System.Drawing.Size(47, 20);
-            this.cellSizePicker.TabIndex = 12;
-            this.cellSizePicker.Value = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(313, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Empty Space");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Red;
-            this.pictureBox2.Location = new System.Drawing.Point(340, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
-            this.toolTip2.SetToolTip(this.pictureBox2, "Wall");
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Blue;
-            this.pictureBox3.Location = new System.Drawing.Point(366, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox3.TabIndex = 15;
-            this.pictureBox3.TabStop = false;
-            this.toolTip3.SetToolTip(this.pictureBox3, "Floor");
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Yellow;
-            this.pictureBox4.Location = new System.Drawing.Point(392, 2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox4.TabIndex = 16;
-            this.pictureBox4.TabStop = false;
-            this.toolTip4.SetToolTip(this.pictureBox4, "Vertical Door");
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
-            // fileCreateButton
-            // 
-            this.fileCreateButton.Location = new System.Drawing.Point(452, 32);
-            this.fileCreateButton.Name = "fileCreateButton";
-            this.fileCreateButton.Size = new System.Drawing.Size(75, 23);
-            this.fileCreateButton.TabIndex = 17;
-            this.fileCreateButton.Text = "Create File";
-            this.fileCreateButton.UseVisualStyleBackColor = true;
-            this.fileCreateButton.Click += new System.EventHandler(this.fileCreateButton_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // clearButton
+            // fileToolStripMenuItem
             // 
-            this.clearButton.Location = new System.Drawing.Point(371, 32);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
-            this.clearButton.TabIndex = 18;
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createNewRoomToolStripMenuItem,
+            this.exportRoomToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
             // 
-            // rectangleMode
+            // exportRoomToolStripMenuItem
             // 
-            this.rectangleMode.AutoSize = true;
-            this.rectangleMode.Location = new System.Drawing.Point(564, 3);
-            this.rectangleMode.Name = "rectangleMode";
-            this.rectangleMode.Size = new System.Drawing.Size(133, 17);
-            this.rectangleMode.TabIndex = 19;
-            this.rectangleMode.Text = "Rectangle Draw Mode";
-            this.rectangleMode.UseVisualStyleBackColor = true;
-            this.rectangleMode.CheckedChanged += new System.EventHandler(this.rectangleMode_CheckedChanged);
+            this.exportRoomToolStripMenuItem.Name = "exportRoomToolStripMenuItem";
+            this.exportRoomToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.exportRoomToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.exportRoomToolStripMenuItem.Text = "Export Room";
+            this.exportRoomToolStripMenuItem.Click += new System.EventHandler(this.exportRoomToolStripMenuItem_Click);
             // 
-            // pictureBox5
+            // createNewRoomToolStripMenuItem
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Lime;
-            this.pictureBox5.Location = new System.Drawing.Point(418, 2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox5.TabIndex = 20;
-            this.pictureBox5.TabStop = false;
-            this.toolTip5.SetToolTip(this.pictureBox5, "Horizontal Door");
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.createNewRoomToolStripMenuItem.Name = "createNewRoomToolStripMenuItem";
+            this.createNewRoomToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.createNewRoomToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.createNewRoomToolStripMenuItem.Text = "Create New Room";
+            this.createNewRoomToolStripMenuItem.Click += new System.EventHandler(this.createNewRoomToolStripMenuItem_Click);
             // 
-            // wallCreateButton
+            // toolsToolStripMenuItem
             // 
-            this.wallCreateButton.Location = new System.Drawing.Point(533, 32);
-            this.wallCreateButton.Name = "wallCreateButton";
-            this.wallCreateButton.Size = new System.Drawing.Size(75, 23);
-            this.wallCreateButton.TabIndex = 21;
-            this.wallCreateButton.Text = "Create Walls";
-            this.wallCreateButton.UseVisualStyleBackColor = true;
-            this.wallCreateButton.Click += new System.EventHandler(this.wallCreateButton_Click);
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rectangleDrawModeToolStripMenuItem,
+            this.generateWallsToolStripMenuItem,
+            this.clearRoomToolStripMenuItem,
+            this.selectTileToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // rectangleDrawModeToolStripMenuItem
+            // 
+            this.rectangleDrawModeToolStripMenuItem.Name = "rectangleDrawModeToolStripMenuItem";
+            this.rectangleDrawModeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.rectangleDrawModeToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.rectangleDrawModeToolStripMenuItem.Text = "Rectangle Draw Mode";
+            this.rectangleDrawModeToolStripMenuItem.Click += new System.EventHandler(this.rectangleDrawModeToolStripMenuItem_Click);
+            // 
+            // generateWallsToolStripMenuItem
+            // 
+            this.generateWallsToolStripMenuItem.Name = "generateWallsToolStripMenuItem";
+            this.generateWallsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+            this.generateWallsToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.generateWallsToolStripMenuItem.Text = "Generate Walls";
+            this.generateWallsToolStripMenuItem.Click += new System.EventHandler(this.generateWallsToolStripMenuItem_Click);
+            // 
+            // clearRoomToolStripMenuItem
+            // 
+            this.clearRoomToolStripMenuItem.Name = "clearRoomToolStripMenuItem";
+            this.clearRoomToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.clearRoomToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.clearRoomToolStripMenuItem.Text = "Clear Room";
+            this.clearRoomToolStripMenuItem.Click += new System.EventHandler(this.clearRoomToolStripMenuItem_Click);
+            // 
+            // selectTileToolStripMenuItem
+            // 
+            this.selectTileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.emptyToolStripMenuItem,
+            this.floorToolStripMenuItem,
+            this.wallToolStripMenuItem});
+            this.selectTileToolStripMenuItem.Name = "selectTileToolStripMenuItem";
+            this.selectTileToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.selectTileToolStripMenuItem.Text = "Select Tile";
+            // 
+            // emptyToolStripMenuItem
+            // 
+            this.emptyToolStripMenuItem.Name = "emptyToolStripMenuItem";
+            this.emptyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.emptyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.emptyToolStripMenuItem.Text = "Empty";
+            this.emptyToolStripMenuItem.Click += new System.EventHandler(this.emptyToolStripMenuItem_Click);
+            // 
+            // floorToolStripMenuItem
+            // 
+            this.floorToolStripMenuItem.Name = "floorToolStripMenuItem";
+            this.floorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.floorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.floorToolStripMenuItem.Text = "Floor";
+            this.floorToolStripMenuItem.Click += new System.EventHandler(this.floorToolStripMenuItem_Click);
+            // 
+            // wallToolStripMenuItem
+            // 
+            this.wallToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topToolStripMenuItem,
+            this.outterCornersToolStripMenuItem,
+            this.innerCornersToolStripMenuItem});
+            this.wallToolStripMenuItem.Name = "wallToolStripMenuItem";
+            this.wallToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.wallToolStripMenuItem.Text = "Wall";
+            // 
+            // topToolStripMenuItem
+            // 
+            this.topToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topToolStripMenuItem1,
+            this.rightToolStripMenuItem,
+            this.bottomToolStripMenuItem,
+            this.leftToolStripMenuItem});
+            this.topToolStripMenuItem.Name = "topToolStripMenuItem";
+            this.topToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.topToolStripMenuItem.Text = "Flat";
+            // 
+            // topToolStripMenuItem1
+            // 
+            this.topToolStripMenuItem1.Name = "topToolStripMenuItem1";
+            this.topToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.topToolStripMenuItem1.Text = "Top";
+            this.topToolStripMenuItem1.Click += new System.EventHandler(this.topToolStripMenuItem1_Click);
+            // 
+            // rightToolStripMenuItem
+            // 
+            this.rightToolStripMenuItem.Name = "rightToolStripMenuItem";
+            this.rightToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rightToolStripMenuItem.Text = "Right";
+            this.rightToolStripMenuItem.Click += new System.EventHandler(this.rightToolStripMenuItem_Click);
+            // 
+            // bottomToolStripMenuItem
+            // 
+            this.bottomToolStripMenuItem.Name = "bottomToolStripMenuItem";
+            this.bottomToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bottomToolStripMenuItem.Text = "Bottom";
+            this.bottomToolStripMenuItem.Click += new System.EventHandler(this.bottomToolStripMenuItem_Click);
+            // 
+            // leftToolStripMenuItem
+            // 
+            this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
+            this.leftToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.leftToolStripMenuItem.Text = "Left";
+            this.leftToolStripMenuItem.Click += new System.EventHandler(this.leftToolStripMenuItem_Click);
+            // 
+            // outterCornersToolStripMenuItem
+            // 
+            this.outterCornersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topRightToolStripMenuItem,
+            this.bottomRightToolStripMenuItem,
+            this.bottomLeftToolStripMenuItem,
+            this.topLeftToolStripMenuItem});
+            this.outterCornersToolStripMenuItem.Name = "outterCornersToolStripMenuItem";
+            this.outterCornersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.outterCornersToolStripMenuItem.Text = "Outter Corners";
+            // 
+            // topRightToolStripMenuItem
+            // 
+            this.topRightToolStripMenuItem.Name = "topRightToolStripMenuItem";
+            this.topRightToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.topRightToolStripMenuItem.Text = "Top-Right";
+            this.topRightToolStripMenuItem.Click += new System.EventHandler(this.topRightToolStripMenuItem_Click);
+            // 
+            // bottomRightToolStripMenuItem
+            // 
+            this.bottomRightToolStripMenuItem.Name = "bottomRightToolStripMenuItem";
+            this.bottomRightToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bottomRightToolStripMenuItem.Text = "Bottom-Right";
+            this.bottomRightToolStripMenuItem.Click += new System.EventHandler(this.bottomRightToolStripMenuItem_Click);
+            // 
+            // bottomLeftToolStripMenuItem
+            // 
+            this.bottomLeftToolStripMenuItem.Name = "bottomLeftToolStripMenuItem";
+            this.bottomLeftToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bottomLeftToolStripMenuItem.Text = "Bottom-Left";
+            this.bottomLeftToolStripMenuItem.Click += new System.EventHandler(this.bottomLeftToolStripMenuItem_Click);
+            // 
+            // topLeftToolStripMenuItem
+            // 
+            this.topLeftToolStripMenuItem.Name = "topLeftToolStripMenuItem";
+            this.topLeftToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.topLeftToolStripMenuItem.Text = "Top-Left";
+            this.topLeftToolStripMenuItem.Click += new System.EventHandler(this.topLeftToolStripMenuItem_Click);
+            // 
+            // innerCornersToolStripMenuItem
+            // 
+            this.innerCornersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topRightToolStripMenuItem1,
+            this.bottomRightToolStripMenuItem1,
+            this.bottomLeftToolStripMenuItem1,
+            this.topLeftToolStripMenuItem1});
+            this.innerCornersToolStripMenuItem.Name = "innerCornersToolStripMenuItem";
+            this.innerCornersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.innerCornersToolStripMenuItem.Text = "Inner Corners";
+            // 
+            // topRightToolStripMenuItem1
+            // 
+            this.topRightToolStripMenuItem1.Name = "topRightToolStripMenuItem1";
+            this.topRightToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.topRightToolStripMenuItem1.Text = "Top-Right";
+            this.topRightToolStripMenuItem1.Click += new System.EventHandler(this.topRightToolStripMenuItem1_Click);
+            // 
+            // bottomRightToolStripMenuItem1
+            // 
+            this.bottomRightToolStripMenuItem1.Name = "bottomRightToolStripMenuItem1";
+            this.bottomRightToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bottomRightToolStripMenuItem1.Text = "Bottom-Right";
+            this.bottomRightToolStripMenuItem1.Click += new System.EventHandler(this.bottomRightToolStripMenuItem1_Click);
+            // 
+            // bottomLeftToolStripMenuItem1
+            // 
+            this.bottomLeftToolStripMenuItem1.Name = "bottomLeftToolStripMenuItem1";
+            this.bottomLeftToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bottomLeftToolStripMenuItem1.Text = "Bottom-Left";
+            this.bottomLeftToolStripMenuItem1.Click += new System.EventHandler(this.bottomLeftToolStripMenuItem1_Click);
+            // 
+            // topLeftToolStripMenuItem1
+            // 
+            this.topLeftToolStripMenuItem1.Name = "topLeftToolStripMenuItem1";
+            this.topLeftToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.topLeftToolStripMenuItem1.Text = "Top-Left";
+            this.topLeftToolStripMenuItem1.Click += new System.EventHandler(this.topLeftToolStripMenuItem1_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(773, 24);
+            this.menuStrip1.TabIndex = 23;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(773, 331);
-            this.Controls.Add(this.wallCreateButton);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.rectangleMode);
-            this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.fileCreateButton);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.cellSizePicker);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.current_selection_box);
+            this.ClientSize = new System.Drawing.Size(773, 498);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.yValuePicker);
-            this.Controls.Add(this.xValuePicker);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.create_button);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.current_selection_box);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Room Maker";
-            ((System.ComponentModel.ISupportInitialize)(this.xValuePicker)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yValuePicker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.current_selection_box)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cellSizePicker)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,31 +337,41 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button create_button;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown xValuePicker;
-        private System.Windows.Forms.NumericUpDown yValuePicker;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox current_selection_box;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown cellSizePicker;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button fileCreateButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.CheckBox rectangleMode;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip2;
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip4;
         private System.Windows.Forms.ToolTip toolTip5;
-        private System.Windows.Forms.Button wallCreateButton;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportRoomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createNewRoomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rectangleDrawModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generateWallsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearRoomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectTileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem emptyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem floorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wallToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem rightToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bottomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem leftToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem outterCornersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topRightToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bottomRightToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bottomLeftToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topLeftToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem innerCornersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topRightToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem bottomRightToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem bottomLeftToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem topLeftToolStripMenuItem1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
 
