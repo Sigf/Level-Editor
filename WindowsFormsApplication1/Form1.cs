@@ -81,8 +81,8 @@ namespace WindowsFormsApplication1
                 {
                     System.Windows.Forms.PictureBox newBox = new System.Windows.Forms.PictureBox();
                     newBox.Name = "cell";
-                    newBox.Top = 61 + (i*size);
-                    newBox.Left = 15 + (j*size);
+                    newBox.Top = 27 + (i*size);
+                    newBox.Left = 12 + (j*size);
                     newBox.Size = new System.Drawing.Size(size, size);
                     newBox.BackColor = Color.White;
                     newBox.BringToFront();
@@ -197,8 +197,8 @@ namespace WindowsFormsApplication1
             int b_x = PointTwo % current_width;
             int b_y = (int)Math.Ceiling((double)(PointTwo / current_width));
 
-            Debug.WriteLine("point1:(" + a_x + "," + a_y + ")");
-            Debug.WriteLine("point2:(" + b_x + "," + b_y + ")");
+            //Debug.WriteLine("point1:(" + a_x + "," + a_y + ")");
+            //Debug.WriteLine("point2:(" + b_x + "," + b_y + ")");
 
             int width = Math.Abs(a_x - b_x);
             int height = Math.Abs(a_y - b_y);
@@ -538,6 +538,7 @@ namespace WindowsFormsApplication1
         {
             rectanlgeMode_checked = rectanlgeMode_checked ? false : true;
             rectangleDrawModeToolStripMenuItem.Checked = rectanlgeMode_checked;
+            rectangleModeStatus.Text = rectanlgeMode_checked ? "Rectangle Mode: ON" : "Rectangle Mode: OFF";
         }
 
         private void floorToolStripMenuItem_Click(object sender, EventArgs e)
