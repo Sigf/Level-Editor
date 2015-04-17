@@ -117,20 +117,20 @@ namespace WindowsFormsApplication1
             {
                 if (count % width == 0 && count != 0) map_string += "\r\n";
 
-                if (cell.BackColor == cell_colors[0]) map_string += "0";
-                else if (cell.BackColor == cell_colors[1]) map_string += "1";
-                else if (cell.BackColor == cell_colors[2]) map_string += "2";
-                else if (cell.BackColor == cell_colors[3]) map_string += "3";
-                else if (cell.BackColor == cell_colors[4]) map_string += "4";
-                else if (cell.BackColor == cell_colors[5]) map_string += "5";
-                else if (cell.BackColor == cell_colors[6]) map_string += "6";
-                else if (cell.BackColor == cell_colors[7]) map_string += "7";
-                else if (cell.BackColor == cell_colors[8]) map_string += "8";
-                else if (cell.BackColor == cell_colors[9]) map_string += "9";
-                else if (cell.BackColor == cell_colors[10]) map_string += "A";
-                else if (cell.BackColor == cell_colors[11]) map_string += "B";
-                else if (cell.BackColor == cell_colors[12]) map_string += "C";
-                else if (cell.BackColor == cell_colors[13]) map_string += "D";
+                if (cell.BackColor == cell_colors[(int)cell_type.empty]) map_string += "0";
+                else if (cell.BackColor == cell_colors[(int)cell_type.floor]) map_string += "1";
+                else if (cell.BackColor == cell_colors[(int)cell_type.top]) map_string += "2";
+                else if (cell.BackColor == cell_colors[(int)cell_type.right]) map_string += "3";
+                else if (cell.BackColor == cell_colors[(int)cell_type.bottom]) map_string += "4";
+                else if (cell.BackColor == cell_colors[(int)cell_type.left]) map_string += "5";
+                else if (cell.BackColor == cell_colors[(int)cell_type.top_right_outter_corner]) map_string += "6";
+                else if (cell.BackColor == cell_colors[(int)cell_type.bottom_right_outter_corner]) map_string += "7";
+                else if (cell.BackColor == cell_colors[(int)cell_type.bottom_left_outter_corner]) map_string += "8";
+                else if (cell.BackColor == cell_colors[(int)cell_type.top_left_outter_corner]) map_string += "9";
+                else if (cell.BackColor == cell_colors[(int)cell_type.top_right_inner_corner]) map_string += "A";
+                else if (cell.BackColor == cell_colors[(int)cell_type.bottom_right_inner_corner]) map_string += "B";
+                else if (cell.BackColor == cell_colors[(int)cell_type.bottom_left_inner_corner]) map_string += "C";
+                else if (cell.BackColor == cell_colors[(int)cell_type.top_left_inner_corner]) map_string += "D";
 
                 map_string += ' ';
                 count++;
