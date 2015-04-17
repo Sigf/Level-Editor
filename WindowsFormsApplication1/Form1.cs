@@ -726,6 +726,17 @@ namespace WindowsFormsApplication1
             cells.Clear();
         }
 
+        private void clearWalls()
+        {
+            foreach (PictureBox cell in cells)
+            {
+                if(cell.BackColor != cell_colors[(int)cell_type.empty] && cell.BackColor != cell_colors[(int)cell_type.floor])
+                {
+                    cell.BackColor = cell_colors[(int)cell_type.empty];
+                }
+            }
+        }
+
         private bool outOfBoundCells(int a_x, int a_y)
         {
             return (a_x - 1 >= 0 && a_x + 1 != 0 && a_y - 1 >= 0 && a_y + 1 < current_height);
@@ -858,6 +869,11 @@ namespace WindowsFormsApplication1
         private void openRoomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             loadMap();
+        }
+
+        private void clearWallsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clearWalls();
         }
     }
 }
