@@ -31,7 +31,7 @@ namespace WindowsFormsApplication1
 
         private bool rectanlgeMode_checked = false;
 
-        private enum cell_type
+        public enum cell_type
         {
             empty, floor,
             top, right, bottom, left,
@@ -742,7 +742,7 @@ namespace WindowsFormsApplication1
             return (a_x - 1 >= 0 && a_x + 1 != 0 && a_y - 1 >= 0 && a_y + 1 < current_height);
         }
 
-        private void setCurrentColor(cell_type type)
+        public void setCurrentColor(cell_type type)
         {
             selected_color = cell_colors[(int)type];
             current_selection_box.BackColor = cell_colors[(int)type];
@@ -874,6 +874,12 @@ namespace WindowsFormsApplication1
         private void clearWallsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clearWalls();
+        }
+
+        private void wallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorPicker color_picker = new ColorPicker(this);
+            color_picker.Show();
         }
     }
 }

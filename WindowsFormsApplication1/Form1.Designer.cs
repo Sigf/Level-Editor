@@ -38,35 +38,20 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createNewRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rectangleDrawModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateWallsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearWallsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectTileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.emptyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.floorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.topToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.topToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.rightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bottomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.leftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.outterCornersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.topRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bottomRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bottomLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.topLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.innerCornersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.topRightToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bottomRightToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.bottomLeftToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.topLeftToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.rectangleModeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.current_selection_box = new System.Windows.Forms.ToolStripStatusLabel();
-            this.openRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearWallsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +85,14 @@
             this.exportRoomToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.exportRoomToolStripMenuItem.Text = "Export Room";
             this.exportRoomToolStripMenuItem.Click += new System.EventHandler(this.exportRoomToolStripMenuItem_Click);
+            // 
+            // openRoomToolStripMenuItem
+            // 
+            this.openRoomToolStripMenuItem.Name = "openRoomToolStripMenuItem";
+            this.openRoomToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openRoomToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.openRoomToolStripMenuItem.Text = "Open Room";
+            this.openRoomToolStripMenuItem.Click += new System.EventHandler(this.openRoomToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -137,6 +130,13 @@
             this.clearRoomToolStripMenuItem.Text = "Clear Room";
             this.clearRoomToolStripMenuItem.Click += new System.EventHandler(this.clearRoomToolStripMenuItem_Click);
             // 
+            // clearWallsToolStripMenuItem
+            // 
+            this.clearWallsToolStripMenuItem.Name = "clearWallsToolStripMenuItem";
+            this.clearWallsToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.clearWallsToolStripMenuItem.Text = "Clear Walls";
+            this.clearWallsToolStripMenuItem.Click += new System.EventHandler(this.clearWallsToolStripMenuItem_Click);
+            // 
             // selectTileToolStripMenuItem
             // 
             this.selectTileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -151,7 +151,7 @@
             // 
             this.emptyToolStripMenuItem.Name = "emptyToolStripMenuItem";
             this.emptyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.emptyToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.emptyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.emptyToolStripMenuItem.Text = "Empty";
             this.emptyToolStripMenuItem.Click += new System.EventHandler(this.emptyToolStripMenuItem_Click);
             // 
@@ -159,136 +159,16 @@
             // 
             this.floorToolStripMenuItem.Name = "floorToolStripMenuItem";
             this.floorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.floorToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.floorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.floorToolStripMenuItem.Text = "Floor";
             this.floorToolStripMenuItem.Click += new System.EventHandler(this.floorToolStripMenuItem_Click);
             // 
             // wallToolStripMenuItem
             // 
-            this.wallToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.topToolStripMenuItem,
-            this.outterCornersToolStripMenuItem,
-            this.innerCornersToolStripMenuItem});
             this.wallToolStripMenuItem.Name = "wallToolStripMenuItem";
-            this.wallToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.wallToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.wallToolStripMenuItem.Text = "Wall";
-            // 
-            // topToolStripMenuItem
-            // 
-            this.topToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.topToolStripMenuItem1,
-            this.rightToolStripMenuItem,
-            this.bottomToolStripMenuItem,
-            this.leftToolStripMenuItem});
-            this.topToolStripMenuItem.Name = "topToolStripMenuItem";
-            this.topToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.topToolStripMenuItem.Text = "Flat";
-            // 
-            // topToolStripMenuItem1
-            // 
-            this.topToolStripMenuItem1.Name = "topToolStripMenuItem1";
-            this.topToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
-            this.topToolStripMenuItem1.Text = "Top";
-            this.topToolStripMenuItem1.Click += new System.EventHandler(this.topToolStripMenuItem1_Click);
-            // 
-            // rightToolStripMenuItem
-            // 
-            this.rightToolStripMenuItem.Name = "rightToolStripMenuItem";
-            this.rightToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.rightToolStripMenuItem.Text = "Right";
-            this.rightToolStripMenuItem.Click += new System.EventHandler(this.rightToolStripMenuItem_Click);
-            // 
-            // bottomToolStripMenuItem
-            // 
-            this.bottomToolStripMenuItem.Name = "bottomToolStripMenuItem";
-            this.bottomToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.bottomToolStripMenuItem.Text = "Bottom";
-            this.bottomToolStripMenuItem.Click += new System.EventHandler(this.bottomToolStripMenuItem_Click);
-            // 
-            // leftToolStripMenuItem
-            // 
-            this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
-            this.leftToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.leftToolStripMenuItem.Text = "Left";
-            this.leftToolStripMenuItem.Click += new System.EventHandler(this.leftToolStripMenuItem_Click);
-            // 
-            // outterCornersToolStripMenuItem
-            // 
-            this.outterCornersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.topRightToolStripMenuItem,
-            this.bottomRightToolStripMenuItem,
-            this.bottomLeftToolStripMenuItem,
-            this.topLeftToolStripMenuItem});
-            this.outterCornersToolStripMenuItem.Name = "outterCornersToolStripMenuItem";
-            this.outterCornersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.outterCornersToolStripMenuItem.Text = "Outter Corners";
-            // 
-            // topRightToolStripMenuItem
-            // 
-            this.topRightToolStripMenuItem.Name = "topRightToolStripMenuItem";
-            this.topRightToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.topRightToolStripMenuItem.Text = "Top-Right";
-            this.topRightToolStripMenuItem.Click += new System.EventHandler(this.topRightToolStripMenuItem_Click);
-            // 
-            // bottomRightToolStripMenuItem
-            // 
-            this.bottomRightToolStripMenuItem.Name = "bottomRightToolStripMenuItem";
-            this.bottomRightToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.bottomRightToolStripMenuItem.Text = "Bottom-Right";
-            this.bottomRightToolStripMenuItem.Click += new System.EventHandler(this.bottomRightToolStripMenuItem_Click);
-            // 
-            // bottomLeftToolStripMenuItem
-            // 
-            this.bottomLeftToolStripMenuItem.Name = "bottomLeftToolStripMenuItem";
-            this.bottomLeftToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.bottomLeftToolStripMenuItem.Text = "Bottom-Left";
-            this.bottomLeftToolStripMenuItem.Click += new System.EventHandler(this.bottomLeftToolStripMenuItem_Click);
-            // 
-            // topLeftToolStripMenuItem
-            // 
-            this.topLeftToolStripMenuItem.Name = "topLeftToolStripMenuItem";
-            this.topLeftToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.topLeftToolStripMenuItem.Text = "Top-Left";
-            this.topLeftToolStripMenuItem.Click += new System.EventHandler(this.topLeftToolStripMenuItem_Click);
-            // 
-            // innerCornersToolStripMenuItem
-            // 
-            this.innerCornersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.topRightToolStripMenuItem1,
-            this.bottomRightToolStripMenuItem1,
-            this.bottomLeftToolStripMenuItem1,
-            this.topLeftToolStripMenuItem1});
-            this.innerCornersToolStripMenuItem.Name = "innerCornersToolStripMenuItem";
-            this.innerCornersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.innerCornersToolStripMenuItem.Text = "Inner Corners";
-            // 
-            // topRightToolStripMenuItem1
-            // 
-            this.topRightToolStripMenuItem1.Name = "topRightToolStripMenuItem1";
-            this.topRightToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
-            this.topRightToolStripMenuItem1.Text = "Top-Right";
-            this.topRightToolStripMenuItem1.Click += new System.EventHandler(this.topRightToolStripMenuItem1_Click);
-            // 
-            // bottomRightToolStripMenuItem1
-            // 
-            this.bottomRightToolStripMenuItem1.Name = "bottomRightToolStripMenuItem1";
-            this.bottomRightToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
-            this.bottomRightToolStripMenuItem1.Text = "Bottom-Right";
-            this.bottomRightToolStripMenuItem1.Click += new System.EventHandler(this.bottomRightToolStripMenuItem1_Click);
-            // 
-            // bottomLeftToolStripMenuItem1
-            // 
-            this.bottomLeftToolStripMenuItem1.Name = "bottomLeftToolStripMenuItem1";
-            this.bottomLeftToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
-            this.bottomLeftToolStripMenuItem1.Text = "Bottom-Left";
-            this.bottomLeftToolStripMenuItem1.Click += new System.EventHandler(this.bottomLeftToolStripMenuItem1_Click);
-            // 
-            // topLeftToolStripMenuItem1
-            // 
-            this.topLeftToolStripMenuItem1.Name = "topLeftToolStripMenuItem1";
-            this.topLeftToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
-            this.topLeftToolStripMenuItem1.Text = "Top-Left";
-            this.topLeftToolStripMenuItem1.Click += new System.EventHandler(this.topLeftToolStripMenuItem1_Click);
+            this.wallToolStripMenuItem.Click += new System.EventHandler(this.wallToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -325,21 +205,6 @@
             this.current_selection_box.Name = "current_selection_box";
             this.current_selection_box.Size = new System.Drawing.Size(16, 17);
             this.current_selection_box.Text = "   ";
-            // 
-            // openRoomToolStripMenuItem
-            // 
-            this.openRoomToolStripMenuItem.Name = "openRoomToolStripMenuItem";
-            this.openRoomToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openRoomToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.openRoomToolStripMenuItem.Text = "Open Room";
-            this.openRoomToolStripMenuItem.Click += new System.EventHandler(this.openRoomToolStripMenuItem_Click);
-            // 
-            // clearWallsToolStripMenuItem
-            // 
-            this.clearWallsToolStripMenuItem.Name = "clearWallsToolStripMenuItem";
-            this.clearWallsToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.clearWallsToolStripMenuItem.Text = "Clear Walls";
-            this.clearWallsToolStripMenuItem.Click += new System.EventHandler(this.clearWallsToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -380,21 +245,6 @@
         private System.Windows.Forms.ToolStripMenuItem emptyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem floorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wallToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem topToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem topToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem rightToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bottomToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem leftToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem outterCornersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem topRightToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bottomRightToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bottomLeftToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem topLeftToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem innerCornersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem topRightToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem bottomRightToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem bottomLeftToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem topLeftToolStripMenuItem1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel rectangleModeStatus;
