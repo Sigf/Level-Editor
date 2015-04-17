@@ -36,7 +36,9 @@ namespace WindowsFormsApplication1
             empty, floor,
             top, right, bottom, left,
             top_right_outter_corner, bottom_right_outter_corner, bottom_left_outter_corner, top_left_outter_corner,
-            top_right_inner_corner, bottom_right_inner_corner, bottom_left_inner_corner, top_left_inner_corner
+            top_right_inner_corner, bottom_right_inner_corner, bottom_left_inner_corner, top_left_inner_corner,
+            top_and_bottom, left_and_right,
+            top_cul, right_cul, bottom_cul, left_cul
         };
 
         private Color[] cell_colors = {
@@ -301,9 +303,6 @@ namespace WindowsFormsApplication1
             int b_x = PointTwo % current_width;
             int b_y = (int)Math.Ceiling((double)(PointTwo / current_width));
 
-            //Debug.WriteLine("point1:(" + a_x + "," + a_y + ")");
-            //Debug.WriteLine("point2:(" + b_x + "," + b_y + ")");
-
             int width = Math.Abs(a_x - b_x);
             int height = Math.Abs(a_y - b_y);
 
@@ -348,8 +347,6 @@ namespace WindowsFormsApplication1
                         PictureBox cell_bottom = cells[getIndexAt(a_x, a_y + 1)];
 
                         cell_type code = getTileCode(cell_left, cell_right, cell_top, cell_bottom);
-
-
 
                         switch (code)
                         {
@@ -409,6 +406,7 @@ namespace WindowsFormsApplication1
 
                                 else if (cell_left.BackColor == cell_colors[(int)cell_type.empty]) cell_left.BackColor = cell_colors[(int)cell_type.left];
                                 break;
+
                             // outter corners
                             case (cell_type.top_right_outter_corner):
                                 cells[getIndexAt(a_x + 1, a_y - 1)].BackColor = cell_colors[(int)cell_type.top_right_outter_corner];
@@ -432,6 +430,94 @@ namespace WindowsFormsApplication1
                                 cells[getIndexAt(a_x - 1, a_y - 1)].BackColor = cell_colors[(int)cell_type.top_left_outter_corner];
                                 cell_top.BackColor = cell_colors[(int)cell_type.top];
                                 cell_left.BackColor = cell_colors[(int)cell_type.left];
+                                break;
+
+                            case (cell_type.top_and_bottom):
+                                if (cell_top.BackColor == cell_colors[(int)cell_type.left])
+                                {
+                                    cell_top.BackColor = cell_colors[(int)cell_type.bottom_right_inner_corner];
+                                }
+
+                                else if (cell_top.BackColor == cell_colors[(int)cell_type.right])
+                                {
+                                    cell_top.BackColor = cell_colors[(int)cell_type.bottom_left_inner_corner];
+                                }
+
+                                else if (cell_top.BackColor == cell_colors[(int)cell_type.empty]) cell_top.BackColor = cell_colors[(int)cell_type.top];
+
+                                if (cell_bottom.BackColor == cell_colors[(int)cell_type.left])
+                                {
+                                    cell_bottom.BackColor = cell_colors[(int)cell_type.top_right_inner_corner];
+                                }
+
+                                else if (cell_bottom.BackColor == cell_colors[(int)cell_type.right])
+                                {
+                                    cell_bottom.BackColor = cell_colors[(int)cell_type.top_left_inner_corner];
+                                }
+
+                                else if (cell_bottom.BackColor == cell_colors[(int)cell_type.empty]) cell_bottom.BackColor = cell_colors[(int)cell_type.bottom];
+                                break;
+
+                            case (cell_type.left_and_right):
+                                if (cell_left.BackColor == cell_colors[(int)cell_type.top])
+                                {
+                                    cell_right.BackColor = cell_colors[(int)cell_type.bottom_right_inner_corner];
+                                }
+
+                                else if (cell_left.BackColor == cell_colors[(int)cell_type.bottom])
+                                {
+                                    cell_left.BackColor = cell_colors[(int)cell_type.top_right_inner_corner];
+                                }
+
+                                else if (cell_left.BackColor == cell_colors[(int)cell_type.empty]) cell_left.BackColor = cell_colors[(int)cell_type.left];
+
+                                if (cell_right.BackColor == cell_colors[(int)cell_type.top])
+                                {
+                                    cell_right.BackColor = cell_colors[(int)cell_type.bottom_left_inner_corner];
+                                }
+
+                                else if (cell_right.BackColor == cell_colors[(int)cell_type.bottom])
+                                {
+                                    cell_right.BackColor = cell_colors[(int)cell_type.top_left_inner_corner];
+                                }
+
+                                else if (cell_right.BackColor == cell_colors[(int)cell_type.empty]) cell_right.BackColor = cell_colors[(int)cell_type.right];
+                                break;
+
+                            case (cell_type.top_cul):
+                                cell_top.BackColor = cell_colors[(int)cell_type.top];
+                                cell_right.BackColor = cell_colors[(int)cell_type.right];
+                                cell_left.BackColor = cell_colors[(int)cell_type.left];
+
+                                cells[getIndexAt(a_x + 1, a_y - 1)].BackColor = cell_colors[(int)cell_type.top_right_outter_corner];
+                                cells[getIndexAt(a_x - 1, a_y - 1)].BackColor = cell_colors[(int)cell_type.top_left_outter_corner];
+                                break;
+
+                            case (cell_type.right_cul):
+                                cell_top.BackColor = cell_colors[(int)cell_type.top];
+                                cell_right.BackColor = cell_colors[(int)cell_type.right];
+                                cell_bottom.BackColor = cell_colors[(int)cell_type.bottom];
+
+                                cells[getIndexAt(a_x + 1, a_y - 1)].BackColor = cell_colors[(int)cell_type.top_right_outter_corner];
+                                cells[getIndexAt(a_x + 1, a_y + 1)].BackColor = cell_colors[(int)cell_type.bottom_right_outter_corner];
+                                break;
+
+                            case (cell_type.bottom_cul):
+                                cell_left.BackColor = cell_colors[(int)cell_type.left];
+                                cell_right.BackColor = cell_colors[(int)cell_type.right];
+                                cell_bottom.BackColor = cell_colors[(int)cell_type.bottom];
+
+                                cells[getIndexAt(a_x + 1, a_y + 1)].BackColor = cell_colors[(int)cell_type.bottom_right_outter_corner];
+                                cells[getIndexAt(a_x - 1, a_y + 1)].BackColor = cell_colors[(int)cell_type.bottom_left_outter_corner];
+                                break;
+
+                            case (cell_type.left_cul):
+                                cell_top.BackColor = cell_colors[(int)cell_type.top];
+                                cell_left.BackColor = cell_colors[(int)cell_type.left];
+                                cell_bottom.BackColor = cell_colors[(int)cell_type.bottom];
+
+                                cells[getIndexAt(a_x - 1, a_y - 1)].BackColor = cell_colors[(int)cell_type.top_left_outter_corner];
+                                cells[getIndexAt(a_x - 1, a_y + 1)].BackColor = cell_colors[(int)cell_type.bottom_left_outter_corner];
                                 break;
                         }
                     }
@@ -570,6 +656,60 @@ namespace WindowsFormsApplication1
                 cell_bottom.BackColor == Color.Blue)
             {
                 return cell_type.top_left_outter_corner;
+            }
+
+            // top and bottom
+            if (cell_left.BackColor == Color.Blue &&
+                cell_right.BackColor == Color.Blue &&
+                cell_top.BackColor != Color.Blue &&
+                cell_bottom.BackColor != Color.Blue)
+            {
+                return cell_type.top_and_bottom;
+            }
+
+            // left and right
+            if (cell_left.BackColor != Color.Blue &&
+                cell_right.BackColor != Color.Blue &&
+                cell_top.BackColor == Color.Blue &&
+                cell_bottom.BackColor == Color.Blue)
+            {
+                return cell_type.left_and_right;
+            }
+
+            // top_cul
+            if (cell_left.BackColor != Color.Blue &&
+                cell_right.BackColor != Color.Blue &&
+                cell_top.BackColor != Color.Blue &&
+                cell_bottom.BackColor == Color.Blue)
+            {
+                return cell_type.top_cul;
+            }
+
+            // right_cul
+            if (cell_left.BackColor == Color.Blue &&
+                cell_right.BackColor != Color.Blue &&
+                cell_top.BackColor != Color.Blue &&
+                cell_bottom.BackColor != Color.Blue)
+            {
+                return cell_type.right_cul;
+            }
+
+            // bottom_cul
+            if (cell_left.BackColor != Color.Blue &&
+                cell_right.BackColor != Color.Blue &&
+                cell_top.BackColor == Color.Blue &&
+                cell_bottom.BackColor != Color.Blue)
+            {
+                return cell_type.bottom_cul;
+            }
+
+            // left_cul
+            if (cell_left.BackColor != Color.Blue &&
+                cell_right.BackColor == Color.Blue &&
+                cell_top.BackColor != Color.Blue &&
+                cell_bottom.BackColor != Color.Blue)
+            {
+                return cell_type.left_cul;
             }
 
             return cell_type.empty;
