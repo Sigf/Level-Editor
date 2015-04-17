@@ -65,6 +65,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.rectangleModeStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.current_selection_box = new System.Windows.Forms.ToolStripStatusLabel();
+            this.openRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +78,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createNewRoomToolStripMenuItem,
-            this.exportRoomToolStripMenuItem});
+            this.exportRoomToolStripMenuItem,
+            this.openRoomToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -322,6 +324,14 @@
             this.current_selection_box.Size = new System.Drawing.Size(16, 17);
             this.current_selection_box.Text = "   ";
             // 
+            // openRoomToolStripMenuItem
+            // 
+            this.openRoomToolStripMenuItem.Name = "openRoomToolStripMenuItem";
+            this.openRoomToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openRoomToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.openRoomToolStripMenuItem.Text = "Open Room";
+            this.openRoomToolStripMenuItem.Click += new System.EventHandler(this.openRoomToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,6 +390,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel rectangleModeStatus;
         private System.Windows.Forms.ToolStripStatusLabel current_selection_box;
+        private System.Windows.Forms.ToolStripMenuItem openRoomToolStripMenuItem;
     }
 }
 

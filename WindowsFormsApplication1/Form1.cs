@@ -25,6 +25,7 @@ namespace WindowsFormsApplication1
 
         private int current_width = 0;
         private int current_height = 0;
+        private int current_cell_size = 0;
 
         private PictureBox current_cell;
 
@@ -70,6 +71,7 @@ namespace WindowsFormsApplication1
             removeCanvas();
             current_height = y_count;
             current_width = x_count;
+            current_cell_size = size;
             createCanvas(x_count, y_count, size);
         }
 
@@ -94,6 +96,106 @@ namespace WindowsFormsApplication1
             }
         }
 
+        public void loadMap()
+        {
+            string file_name = "";
+            System.IO.StreamReader objReader;
+            System.Windows.Forms.DialogResult dr = openFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+            {
+                file_name = openFileDialog1.FileName;
+            }
+
+            if (file_name == "") { return; }
+
+            objReader = new System.IO.StreamReader(file_name);
+
+            string line = objReader.ReadLine();
+
+            string[] input = line.Split(' ');
+
+            string canvas_width_str = input[0].Substring(1);
+            string canvas_height_str = input[1].Substring(1);
+            string cell_size_str = input[2].Substring(1);
+
+            int canvas_width = Convert.ToInt32(canvas_width_str);
+            int canvas_height = Convert.ToInt32(canvas_height_str);
+            int cell_size =  Convert.ToInt32(cell_size_str);
+
+            createRoom(canvas_width, canvas_height, cell_size);
+
+            for (int i = 0; i < canvas_width; i++)
+            {
+                line = objReader.ReadLine();
+
+                input = line.Split(' ');
+
+                for (int j = 0; j < canvas_width; j++)
+                {
+                    //cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.floor];
+
+                    switch (input[j])
+                    {
+                        case("0"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.empty];
+                            break;
+
+                        case ("1"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.floor];
+                            break;
+
+                        case ("2"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.top];
+                            break;
+
+                        case ("3"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.right];
+                            break;
+
+                        case ("4"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.bottom];
+                            break;
+
+                        case ("5"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.left];
+                            break;
+
+                        case ("6"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.top_right_outter_corner];
+                            break;
+
+                        case ("7"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.bottom_right_outter_corner];
+                            break;
+
+                        case ("8"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.bottom_left_outter_corner];
+                            break;
+
+                        case ("9"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.top_left_outter_corner];
+                            break;
+
+                        case ("A"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.top_right_inner_corner];
+                            break;
+
+                        case ("B"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.bottom_right_inner_corner];
+                            break;
+
+                        case ("C"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.bottom_left_inner_corner];
+                            break;
+
+                        case ("D"):
+                            cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.top_left_inner_corner];
+                            break;
+                    }
+                }
+            }
+        }
+
         public void CreateFile()
         {
             string file_name = "";
@@ -109,6 +211,8 @@ namespace WindowsFormsApplication1
             objWriter = new System.IO.StreamWriter(file_name);
 
             string map_string = "";
+
+            map_string += "W" + current_width + " H" + current_height + " C" + current_cell_size + "\r\n";
 
             int count = 0;
             int width = current_width;
@@ -609,6 +713,11 @@ namespace WindowsFormsApplication1
         private void topLeftToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             setCurrentColor(cell_type.top_left_inner_corner);
+        }
+
+        private void openRoomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loadMap();
         }
     }
 }
