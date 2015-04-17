@@ -34,10 +34,10 @@ The following window should appear:
  When you are happy with the result, you can export it by pressing CTRL + S and choosing a file location. You should be done with the editor. Now we can import it in Unity!
  
 ![alt tag](https://raw.github.com/Sigf/Level-Editor/master/step4.jpg)
- 
- Inside Unity:
- ---
- Now let's open the scene and go to Window > Load Level. If it isn't there, please make sure that the levelLoader.cs script is in the Editor folder.
+
+Inside Unity:
+---
+Now let's open the scene and go to Window > Load Level. If it isn't there, please make sure that the levelLoader.cs script is in the Editor folder.
  
 ![alt tag](https://raw.github.com/Sigf/Level-Editor/master/step5.jpg)
  
