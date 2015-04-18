@@ -167,7 +167,7 @@
             // 
             this.wallToolStripMenuItem.Name = "wallToolStripMenuItem";
             this.wallToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.wallToolStripMenuItem.Text = "Wall";
+            this.wallToolStripMenuItem.Text = "Tile Picker";
             this.wallToolStripMenuItem.Click += new System.EventHandler(this.wallToolStripMenuItem_Click);
             // 
             // menuStrip1
