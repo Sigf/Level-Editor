@@ -30,7 +30,16 @@ The following window should appear:
  
  Once you are done with the layout, you don't have to start drawing each different tiles by hand. You can automatically generate the wall data by pressing CTRL + W or going into Tools > Generate Walls.
  If you want to do more changes to the layout after generating the walls, you can remove them by going into Tools > Clear Walls.
- If you want to add special walls, or if there was an error in the wall generation, you still have the option to manually draw wall tiles. You can select them by going into Tools > Select Tile > Wall.
+ If you want to add special walls, or if there was an error in the wall generation, you still have the option to manually draw wall tiles. You can select them by going into Tools > Select Tile > Tile Picker.
+ This opens the following menu:
+ 
+ ![alt tag](https://raw.github.com/Sigf/Level-Editor/master/tile_picker.jpg)
+ 
+ You can click on each tile to select them. You can keep it open while working on the level.
+ If you have a hard visualizing which tile is which, here is a handy reference for you:
+ 
+ ![alt tag](https://raw.github.com/Sigf/Level-Editor/master/tile_types.jpg)
+ 
  When you are happy with the result, you can export it by pressing CTRL + S and choosing a file location. You should be done with the editor. Now we can import it in Unity!
  
 ![alt tag](https://raw.github.com/Sigf/Level-Editor/master/step4.jpg)
