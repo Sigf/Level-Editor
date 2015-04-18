@@ -71,9 +71,9 @@
             // topTilePicker
             // 
             this.topTilePicker.BackColor = System.Drawing.Color.LightPink;
-            this.topTilePicker.Location = new System.Drawing.Point(72, 42);
+            this.topTilePicker.Location = new System.Drawing.Point(42, 12);
             this.topTilePicker.Name = "topTilePicker";
-            this.topTilePicker.Size = new System.Drawing.Size(24, 24);
+            this.topTilePicker.Size = new System.Drawing.Size(84, 24);
             this.topTilePicker.TabIndex = 1;
             this.topTilePicker.TabStop = false;
             this.topTilePicker.Click += new System.EventHandler(this.topTilePicker_Click);
@@ -91,9 +91,9 @@
             // leftTilePicker
             // 
             this.leftTilePicker.BackColor = System.Drawing.Color.Chartreuse;
-            this.leftTilePicker.Location = new System.Drawing.Point(42, 72);
+            this.leftTilePicker.Location = new System.Drawing.Point(12, 42);
             this.leftTilePicker.Name = "leftTilePicker";
-            this.leftTilePicker.Size = new System.Drawing.Size(24, 24);
+            this.leftTilePicker.Size = new System.Drawing.Size(24, 84);
             this.leftTilePicker.TabIndex = 3;
             this.leftTilePicker.TabStop = false;
             this.leftTilePicker.Click += new System.EventHandler(this.leftTilePicker_Click);
@@ -111,9 +111,9 @@
             // bottomTilePicker
             // 
             this.bottomTilePicker.BackColor = System.Drawing.Color.DarkKhaki;
-            this.bottomTilePicker.Location = new System.Drawing.Point(72, 102);
+            this.bottomTilePicker.Location = new System.Drawing.Point(42, 132);
             this.bottomTilePicker.Name = "bottomTilePicker";
-            this.bottomTilePicker.Size = new System.Drawing.Size(24, 24);
+            this.bottomTilePicker.Size = new System.Drawing.Size(84, 24);
             this.bottomTilePicker.TabIndex = 5;
             this.bottomTilePicker.TabStop = false;
             this.bottomTilePicker.Click += new System.EventHandler(this.bottomTilePicker_Click);
@@ -131,9 +131,9 @@
             // rightTilePicker
             // 
             this.rightTilePicker.BackColor = System.Drawing.Color.Coral;
-            this.rightTilePicker.Location = new System.Drawing.Point(102, 72);
+            this.rightTilePicker.Location = new System.Drawing.Point(131, 42);
             this.rightTilePicker.Name = "rightTilePicker";
-            this.rightTilePicker.Size = new System.Drawing.Size(24, 24);
+            this.rightTilePicker.Size = new System.Drawing.Size(24, 84);
             this.rightTilePicker.TabIndex = 7;
             this.rightTilePicker.TabStop = false;
             this.rightTilePicker.Click += new System.EventHandler(this.rightTilePicker_Click);
@@ -181,7 +181,7 @@
             // floorTilePicker
             // 
             this.floorTilePicker.BackColor = System.Drawing.Color.Blue;
-            this.floorTilePicker.Location = new System.Drawing.Point(72, 132);
+            this.floorTilePicker.Location = new System.Drawing.Point(72, 102);
             this.floorTilePicker.Name = "floorTilePicker";
             this.floorTilePicker.Size = new System.Drawing.Size(24, 24);
             this.floorTilePicker.TabIndex = 12;
