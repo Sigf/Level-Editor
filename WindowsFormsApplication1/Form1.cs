@@ -18,6 +18,10 @@ namespace WindowsFormsApplication1
 
         public List<PictureBox> cells;
 
+        private List<List<PictureBox>> undo_stack;
+        private int undo_index = -1;
+        private int undo_max = 15;
+
         private int pointOne;
         private int PointTwo;
 
@@ -65,6 +69,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             cells = new List<PictureBox>();
+            undo_stack = new List<List<PictureBox>>();
             current_cell = null;
         }
 
@@ -75,6 +80,7 @@ namespace WindowsFormsApplication1
             current_width = x_count;
             current_cell_size = size;
             createCanvas(x_count, y_count, size);
+            backup();
         }
 
         public void createCanvas(int column, int row, int size)
@@ -134,7 +140,6 @@ namespace WindowsFormsApplication1
 
                 for (int j = 0; j < canvas_width; j++)
                 {
-                    //cells[j + (i * canvas_width)].BackColor = cell_colors[(int)cell_type.floor];
 
                     switch (input[j])
                     {
@@ -196,6 +201,7 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
+            backup();
         }
 
         public void CreateFile()
@@ -266,6 +272,7 @@ namespace WindowsFormsApplication1
             }
 
             cell.BackColor = selected_color;
+            backup();
         }
 
         private void highlightSelection(object sender, EventArgs e)
@@ -287,6 +294,7 @@ namespace WindowsFormsApplication1
             {
                 cell.BackColor = Color.White;
             }
+            backup();
         }
 
         private int getIndexAt(int x, int y)
@@ -524,6 +532,7 @@ namespace WindowsFormsApplication1
                 }
             }
             secondPass();
+            backup();
         }
 
         private void secondPass()
@@ -724,6 +733,8 @@ namespace WindowsFormsApplication1
             }
 
             cells.Clear();
+            clearUndo();
+
         }
 
         private void clearWalls()
@@ -735,6 +746,7 @@ namespace WindowsFormsApplication1
                     cell.BackColor = cell_colors[(int)cell_type.empty];
                 }
             }
+            backup();
         }
 
         private bool outOfBoundCells(int a_x, int a_y)
@@ -761,6 +773,58 @@ namespace WindowsFormsApplication1
             int origin_y = a_y >= b_y ? b_y : a_y;
 
             return getIndexAt(origin_x, origin_y);
+        }
+
+        private void backup()
+        {
+            if (undo_index >= undo_max)
+            {
+                undo_stack.RemoveAt(0);
+                undo_stack[undo_index] = new List<PictureBox>(cells.Count);
+
+                foreach(PictureBox cell in cells)
+                {
+
+                    undo_stack[undo_index].Add(cell);
+                }
+            }
+            else
+            {  
+                undo_stack.Add(new List<PictureBox>(cells));
+                undo_index++;
+                Debug.WriteLine("backed up data:" + undo_index);
+            }
+        }
+
+        private void undo()
+        {
+            if (undo_index >= 1)
+            {
+                Debug.WriteLine(undo_stack.Count);
+                Debug.WriteLine(undo_index);
+                //cells = undo_stack[undo_index];
+                for (int i = 0; i < cells.Count; i++)
+                {
+                    Debug.WriteLine("replaced " + cells[i].BackColor + " to " + undo_stack[undo_index - 1][i].BackColor);
+                    cells[i].BackColor = undo_stack[ undo_index - 1][i].BackColor;
+                }
+                    undo_index--;
+            }
+        }
+
+        private void redo()
+        {
+            if (undo_index < undo_max)
+            {
+                undo_index++;
+                cells = undo_stack[undo_index];
+            }
+        }
+
+        private void clearUndo()
+        {
+
+            undo_stack.Clear();
         }
 
         /*
@@ -880,6 +944,16 @@ namespace WindowsFormsApplication1
         {
             ColorPicker color_picker = new ColorPicker(this);
             color_picker.Show();
+        }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            undo();
+        }
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            redo();
         }
     }
 }
