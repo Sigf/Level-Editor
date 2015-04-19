@@ -777,7 +777,7 @@ namespace WindowsFormsApplication1
 
         private void backup()
         {
-            if (undo_index >= undo_max)
+            /*if (undo_index >= undo_max)
             {
                 undo_stack.RemoveAt(0);
                 undo_stack[undo_index] = new List<PictureBox>(cells.Count);
@@ -792,13 +792,13 @@ namespace WindowsFormsApplication1
             {  
                 undo_stack.Add(new List<PictureBox>(cells));
                 undo_index++;
-                Debug.WriteLine("backed up data:" + undo_index);
+                De*/bug.WriteLine("backed up data:" + undo_index);
             }
         }
 
         private void undo()
         {
-            if (undo_index >= 1)
+            /*if (undo_index >= 1)
             {
                 Debug.WriteLine(undo_stack.Count);
                 Debug.WriteLine(undo_index);
@@ -809,22 +809,22 @@ namespace WindowsFormsApplication1
                     cells[i].BackColor = undo_stack[ undo_index - 1][i].BackColor;
                 }
                     undo_index--;
-            }
+            }*/
         }
 
         private void redo()
         {
-            if (undo_index < undo_max)
+            /*if (undo_index < undo_max)
             {
                 undo_index++;
                 cells = undo_stack[undo_index];
-            }
+            }*/
         }
 
         private void clearUndo()
         {
 
-            undo_stack.Clear();
+            //undo_stack.Clear();
         }
 
         /*
