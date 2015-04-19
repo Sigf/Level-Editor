@@ -792,8 +792,8 @@ namespace WindowsFormsApplication1
             {  
                 undo_stack.Add(new List<PictureBox>(cells));
                 undo_index++;
-                De*/bug.WriteLine("backed up data:" + undo_index);
-            }
+                Debug.WriteLine("backed up data:" + undo_index);
+            }*/
         }
 
         private void undo()
