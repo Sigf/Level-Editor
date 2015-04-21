@@ -50,8 +50,12 @@ Now let's open the scene and go to Window > Load Level. If it isn't there, pleas
  
 ![alt tag](https://raw.github.com/Sigf/Level-Editor/master/step5.jpg)
  
- Select the file, name the level, and plug in the according tiles for the different wall types and the floor. Click on load, the level should instanciate itself in a subobject in the scene.
- That way you can move the whole level as one. If you want to do some changes, you can go back to the editor, load the map, do some changes and re-save it. If it is saved at the same place with the same name, you can just remove the level object and click on Load again. You don't need to re-select it.
+The way the tiles should be organized is in a sub-folder of Assets, with a prefix and then numbered the following way:
+
+![alt tag](https://raw.github.com/Sigf/Level-Editor/master/tile_example.jpg)
+
+Select the map file, name the level, plug in the floor tile and type the prefix of the tiles and the folder name. Click on load, the level should instanciate itself in a subobject in the scene.
+If you want to do some changes, you can go back to the editor, load the map, edit it and re-save it. If it is saved at the same place with the same name, you can just remove the level object and click on Load again. You don't need to re-select it.
  
 ![alt tag](https://raw.github.com/Sigf/Level-Editor/master/step6.jpg)
  
