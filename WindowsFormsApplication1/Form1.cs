@@ -18,8 +18,8 @@ namespace WindowsFormsApplication1
 
         public List<PictureBox> cells;
 
-        private List<List<PictureBox>> undo_stack;
-        private int undo_index = -1;
+        private List<List<Color>> undo_stack;
+        private int undo_index = 0;
         private int undo_max = 15;
 
         private int pointOne;
@@ -69,7 +69,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             cells = new List<PictureBox>();
-            undo_stack = new List<List<PictureBox>>();
+            undo_stack = new List<List<Color>>();
             current_cell = null;
         }
 
@@ -780,17 +780,23 @@ namespace WindowsFormsApplication1
             /*if (undo_index >= undo_max)
             {
                 undo_stack.RemoveAt(0);
-                undo_stack[undo_index] = new List<PictureBox>(cells.Count);
+                undo_stack.Add(new List<Color>());
 
-                foreach(PictureBox cell in cells)
+                for (int i = 0; i < cells.Count; i++ )
                 {
+                    undo_stack[undo_index].Add(cells[i].BackColor);
 
-                    undo_stack[undo_index].Add(cell);
                 }
             }
             else
             {  
-                undo_stack.Add(new List<PictureBox>(cells));
+                undo_stack.Add(new List<Color>());
+
+                for (int i = 0; i < cells.Count; i++ )
+                {
+                    undo_stack[undo_index].Add(cells[i].BackColor);
+
+                }
                 undo_index++;
                 Debug.WriteLine("backed up data:" + undo_index);
             }*/
@@ -802,11 +808,10 @@ namespace WindowsFormsApplication1
             {
                 Debug.WriteLine(undo_stack.Count);
                 Debug.WriteLine(undo_index);
-                //cells = undo_stack[undo_index];
                 for (int i = 0; i < cells.Count; i++)
                 {
-                    Debug.WriteLine("replaced " + cells[i].BackColor + " to " + undo_stack[undo_index - 1][i].BackColor);
-                    cells[i].BackColor = undo_stack[ undo_index - 1][i].BackColor;
+                    Debug.WriteLine("replaced " + cells[i].BackColor + " to " + undo_stack[undo_index - 1][i]);
+                    cells[i].BackColor = undo_stack[ undo_index - 1 ][i];
                 }
                     undo_index--;
             }*/
@@ -824,7 +829,7 @@ namespace WindowsFormsApplication1
         private void clearUndo()
         {
 
-            //undo_stack.Clear();
+           // undo_stack.Clear();
         }
 
         /*
