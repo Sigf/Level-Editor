@@ -208,10 +208,10 @@ namespace WindowsFormsApplication1
         {
             string file_name = "";
             System.IO.StreamWriter objWriter;
-            System.Windows.Forms.DialogResult dr = openFileDialog1.ShowDialog();
+            System.Windows.Forms.DialogResult dr = saveFileDialog1.ShowDialog();
             if (dr == DialogResult.OK)
             {
-                file_name = openFileDialog1.FileName;
+                file_name = saveFileDialog1.FileName;
             }
 
             if (file_name == "") { return; }
